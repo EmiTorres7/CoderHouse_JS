@@ -37,32 +37,44 @@ let librosLatinoamericanos = [
 let mensaje = document.getElementById("boton");
 
 function calcularPrecio() {
-    let precio = precio + parseInt(librosFiccion[0].precio)*0.21;
-    alert(`El total de su compra es de: $${precio}`);
+    let iva = parseInt(librosFiccion[0].precio)*0.21;
+    let precioTotal = parseInt(librosFiccion[0].precio) + iva; 
+    return precioTotal;        
+    //alert(`El total de su compra es de: $${precioTotal}`);   
 }
 
+/* 
+function mostrarLibrosSecciones(){
+    for(let libros of librosFiccion) {
+    console.log(libros.titulo)
+
+}
+}
+*/
+
 function mostrarDetalleLibro(libro) {
-    alert(`Título: ${librosFiccion[0].titulo}, Autor: ${librosFiccion[0].autor}, Género: ${librosFiccion[0].genero}, Precio: $${librosFiccion[0].precio}`)
-    let confirmacion = confirm(`¿Desea comprar ${librosFiccion[0].titulo}?`)
+    alert(`Elegiste el libro:\n Título: ${libro[0].titulo}, Autor: ${libro[0].autor}, Género: ${libro[0].genero}, Precio: $${libro[0].precio}`)
+    let confirmacion = confirm(`¿Desea comprar el libro: ${libro[0].titulo}?`)
     if (confirmacion) {
-        calcularPrecio();
+        alert(`El total de su compra con IVA es de: $${calcularPrecio()}`);
     } else {
         mostrarLibros();
     }
 }
 
+
 function mostrarLibros() {  
     do {
-        let eleccion = parseInt(prompt('"Bienvenido a nuestra Librería Virtual. Elija un género de su interés: \n1. Ficción \n2. No Ficción \n3. Infantiles \n4. Académicos \n5. Latinoamericanos \n6.Salir'))
+        let eleccion = parseInt(prompt('"Bienvenido a nuestra Librería Virtual. Elija un género de su interés: \n1. Ficción \n2. No Ficción \n3. Infantiles \n4. Académicos \n5. Latinoamericanos \n6. Salir'))
         let genero;
 
         switch (eleccion) {
                 case 1:
                     do {
-                        genero = parseInt(prompt(`Elegiste Género Ficción. Estos son nuestros libros:\n1. ${librosFiccion[0].titulo} \n2. ${librosFiccion[1].titulo} \n3. ${librosFiccion[2].titulo} \n4. ${librosFiccion[3].titulo} \n5. ${librosFiccion[4].titulo} \n6.Volver`))
+                        genero = parseInt(prompt(`Elegiste Género Ficción. Estos son nuestros libros:\n1. ${librosFiccion[0].titulo} \n2. ${librosFiccion[1].titulo} \n3. ${librosFiccion[2].titulo} \n4. ${librosFiccion[3].titulo}\n5. Volver`))
                         switch (genero) {
                             case 1:
-                                mostrarDetalleLibro(librosFiccion)
+                                mostrarDetalleLibro(librosFiccion);
                                 break;
                             case 2:
                                 mostrarDetalleLibro()
