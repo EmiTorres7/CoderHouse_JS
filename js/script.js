@@ -1,5 +1,5 @@
 let librosFiccion = [
-  { titulo: "1984", autor: "George Orwell", año: 1949, genero: "Distopía", disponibilidad:true },
+  { titulo: "1984", autor: "George Orwell", año: 1949, genero: "Distopía", disponibilidad:true, precio: 15000 },
   { titulo: "Cien años de soledad", autor: "Gabriel García Márquez", año: 1967, genero: "Realismo mágico",disponibilidad:false },
   { titulo: "Fahrenheit 451", autor: "Ray Bradbury", año: 1953, genero: "Ciencia ficción", disponibilidad: true },
   { titulo: "El señor de los anillos", autor: "J.R.R. Tolkien", año: 1954, genero: "Fantasía", disponibilidad: false }
@@ -34,22 +34,78 @@ let librosLatinoamericanos = [
   { titulo: "La casa de los espíritus", autor: "Isabel Allende", pais: "Chile", año: 1982, disponibilidad:true }
 ];
 
+let mensaje = document.getElementById("boton");
 
-
-
-function mostrarLibros() {
-
+function calcularPrecio() {
+    let precio = precio + parseInt(librosFiccion[0].precio)*0.21;
+    alert(`El total de su compra es de: $${precio}`);
 }
-
-function buscarLibros() {
-
-}
-
-function agregarLibro(titulo, autor){
-    return {titulo, autor};
-}
-
 
 function mostrarDetalleLibro(libro) {
-    console.log(`Título: ${libro.titulo}, Autor: ${libro.autor}`)
+    alert(`Título: ${librosFiccion[0].titulo}, Autor: ${librosFiccion[0].autor}, Género: ${librosFiccion[0].genero}, Precio: $${librosFiccion[0].precio}`)
+    let confirmacion = confirm(`¿Desea comprar ${librosFiccion[0].titulo}?`)
+    if (confirmacion) {
+        calcularPrecio();
+    } else {
+        mostrarLibros();
+    }
 }
+
+function mostrarLibros() {  
+    do {
+        let eleccion = parseInt(prompt('"Bienvenido a nuestra Librería Virtual. Elija un género de su interés: \n1. Ficción \n2. No Ficción \n3. Infantiles \n4. Académicos \n5. Latinoamericanos \n6.Salir'))
+        let genero;
+
+        switch (eleccion) {
+                case 1:
+                    do {
+                        genero = parseInt(prompt(`Elegiste Género Ficción. Estos son nuestros libros:\n1. ${librosFiccion[0].titulo} \n2. ${librosFiccion[1].titulo} \n3. ${librosFiccion[2].titulo} \n4. ${librosFiccion[3].titulo} \n5. ${librosFiccion[4].titulo} \n6.Volver`))
+                        switch (genero) {
+                            case 1:
+                                mostrarDetalleLibro(librosFiccion)
+                                break;
+                            case 2:
+                                mostrarDetalleLibro()
+                                break;
+                            case 3:
+                                mostrarDetalleLibro()
+                                break;
+                            case 4:
+                                mostrarDetalleLibro()
+                                break;
+                            case 5:
+                                mostrarDetalleLibro()
+                                break;
+                            case 6:
+                                mostrarLibros();
+                            default:
+                                break;
+                        }            
+                    } while (genero !==6);
+                    break;
+                case 2:
+                    alert('Elegiste Género No Ficción')
+                    break;
+                case 3:
+                    alert('Elegiste Género Infantiles')
+                    break;
+                case 4:
+                    alert('Elegiste Género Académicos')
+                    break;
+                case 5:
+                    alert('Elegiste Género Latinoamericanos')
+                    break;
+                case 6:
+                    alert('Gracias por visitarnos. Hasta pronto!')
+                    break;
+                default:
+                    alert('Opción no válida, por favor intente nuevamente')
+                    break;
+                }
+    } while (eleccion !== 6);
+}
+
+boton.addEventListener('click', mostrarLibros) 
+
+
+
