@@ -13,24 +13,24 @@ let librosNoFiccion = [
 ];
 
 let librosInfantiles = [
-  { titulo: "El principito", autor: "Antoine de Saint-Exupéry", año: 1943, edad_recomendada: "8+", disponibilidad:true },
-  { titulo: "Donde viven los monstruos", autor: "Maurice Sendak", año: 1963, edad_recomendada: "4+", disponibilidad:true },
-  { titulo: "Matilda", autor: "Roald Dahl", año: 1988, edad_recomendada: "9+", disponibilidad:false },
-  { titulo: "Harry Potter y la piedra filosofal", autor: "J.K. Rowling", año: 1997, edad_recomendada: "10+", disponibilidad:false }
+  { titulo: "El principito", autor: "Antoine de Saint-Exupéry", año: 1943, edad_recomendada: "8+", disponibilidad:true, precio: 8000 },
+  { titulo: "Donde viven los monstruos", autor: "Maurice Sendak", año: 1963, edad_recomendada: "4+", disponibilidad:true, precio: 7500 },
+  { titulo: "Matilda", autor: "Roald Dahl", año: 1988, edad_recomendada: "9+", disponibilidad:false, precio: 9000 },
+  { titulo: "Harry Potter y la piedra filosofal", autor: "J.K. Rowling", año: 1997, edad_recomendada: "10+", disponibilidad:false, precio: 22000 }
 ];
 
 let librosAcademicos = [
-  { titulo: "Introduction to Algorithms", autor: "Thomas H. Cormen", año: 2009, genero: "Informática", disponibilidad:true },
-  { titulo: "The Selfish Gene", autor: "Richard Dawkins", año: 1976, genero: "Biología evolutiva", disponibilidad:true },
-  { titulo: "Critique of Pure Reason", autor: "Immanuel Kant", año: 1781, genero: "Filosofía", disponibilidad:true },
-  { titulo: "The Structure of Scientific Revolutions", autor: "Thomas S. Kuhn", año: 1962, genero: "Filosofía de la ciencia", disponibilidad:false }
+  { titulo: "Introduction to Algorithms", autor: "Thomas H. Cormen", año: 2009, genero: "Informática", disponibilidad:true, precio: 42000 },
+  { titulo: "The Selfish Gene", autor: "Richard Dawkins", año: 1976, genero: "Biología evolutiva", disponibilidad:true, precio: 38000 },
+  { titulo: "Critique of Pure Reason", autor: "Immanuel Kant", año: 1781, genero: "Filosofía", disponibilidad:true, precio: 37500 },
+  { titulo: "The Structure of Scientific Revolutions", autor: "Thomas S. Kuhn", año: 1962, genero: "Filosofía de la ciencia", disponibilidad:false, precio: 29500 }
 ];
 
 let librosLatinoamericanos = [
-  { titulo: "Rayuela", autor: "Julio Cortázar", pais: "Argentina", año: 1963, disponibilidad:false },
-  { titulo: "Las venas abiertas de América Latina", autor: "Eduardo Galeano", pais: "Uruguay", año: 1955, disponibilidad:true },
-  { titulo: "La ciudad y los perros", autor: "Mario Vargas Llosa", pais: "Perú", año: 1963, disponibilidad:false },
-  { titulo: "La casa de los espíritus", autor: "Isabel Allende", pais: "Chile", año: 1982, disponibilidad:true }
+  { titulo: "Rayuela", autor: "Julio Cortázar", pais: "Argentina", año: 1963, genero: 'novela', disponibilidad:false, precio: 25000 },
+  { titulo: "Las venas abiertas de América Latina", autor: "Eduardo Galeano", pais: "Uruguay", año: 1955, genero: 'no ficción - Ensayo', disponibilidad:true, precio: 32000 },
+  { titulo: "La ciudad y los perros", autor: "Mario Vargas Llosa", pais: "Perú", año: 1963, genero: 'Novela, ficción', disponibilidad:false, precio: 26000 },
+  { titulo: "La casa de los espíritus", autor: "Isabel Allende", pais: "Chile", año: 1982, genero: 'Novela- Realismo mágico - ficción', disponibilidad:true,precio: 37000 }
 ];
 
 let mensaje = document.getElementById("boton");
