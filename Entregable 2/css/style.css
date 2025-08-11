@@ -66,4 +66,7 @@ body {
     display: block;
 }
 
+.tareas .lista li a:hover {
+    text-decoration: line-through;
+}
 
