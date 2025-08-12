@@ -36,7 +36,7 @@ body {
 }
 
 .principal .formulario input[type=text].error {
-    border: 8px solid #D32F2F;
+    border: 4px solid #D32F2F;
     color: red;
 }
 
@@ -59,14 +59,15 @@ body {
     padding: 5px;    
 }
 
-.tareas .lista li a {
+.tareas .lista li {
     color: #212121;
     text-decoration: none;
     padding: 20px 0;
     display: block;
 }
 
-.tareas .lista li a:hover {
+.tareas .lista li:hover {
     text-decoration: line-through;
+    cursor: pointer;
 }
 
