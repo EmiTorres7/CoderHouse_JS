@@ -1,49 +1,56 @@
 let lista = document.getElementById('listaTareas')
-//const tareas = []
-const tareas = Array.from(document.querySelectorAll('#listaTareas li'));
-
-
 let tareaInput = document.getElementById('tareaInput');
 let botonNuevaTarea = document.getElementById('boton-agregar');
 let formulario = document.getElementById('form')
+let nuevoP;
 
+//const tareas = Array.from(document.querySelectorAll('#listaTareas li'));
 
-//Funciones
+//Función agregar tarea
 let agregarTarea = function(){
     const nuevaTareaTexto = tareaInput.value.trim();
 
     if (nuevaTareaTexto !=="") {
-        tareas.push(nuevaTareaTexto);
-    
-        const nuevoLi = document.createElement('li');
-        nuevoLi.textContent = `${tareas.length}. ${nuevaTareaTexto}`;
-        lista.appendChild(nuevoLi)
-        nuevoLi.addEventListener('click', eliminarTarea)
-            
-        tareaInput.value = "";
-        console.log(tareas);
 
+        const nuevoLi = document.createElement('li');
+        nuevoLi.textContent = `# ${nuevaTareaTexto}`;
+        //agregar a la lista
+        lista.appendChild(nuevoLi)
+        //eliminar tarea al hacer click
+        nuevoLi.addEventListener('click', eliminarTarea)
+        //limpiar input    
+        tareaInput.value = "";
+        console.log(tareaInput);
+
+        form.removeChild(nuevoP)
     } else {
-        let nuevoDiv = document.createElement('div');
-        nuevoDiv.id = "mensajeError";
-        nuevoDiv.innerHTML = `<p>Por favor escribe una tarea</p>`;
-        form.appendChild(nuevoDiv);
+        tareaInput.setAttribute("placeholder", "Agrega una tarea válida")
+        tareaInput.className = "error"
+
+        //Mostrar mensjae sólo si no existe nuevoDiv
+        let nuevoP = document.createElement('p');
+        nuevoP.innerHTML = `<p style=padding:8px>Por favor escribe una tarea</p>`;
+        form.appendChild(nuevoP);     
     }
 };
 
+//función comprobar input
 let comprobarInput = function(){
-    alert('Comprobar input')
+    tareaInput.className = "";
+    tareaInput.setAttribute("placeholder", "Agrega tu tarea")
+    form.removeChild(nuevoP)
 };
 
-let eliminarTarea = function(){
-    alert('Eliminar tarea')
+//Función eliminiar tarea
+let eliminarTarea = function(tarea){
+    let elementoLi = tarea.target //así capturo elvalor del elemento <li> clickeado
+    lista.removeChild(elementoLi)
+    alert("Tarea eliminada: " + elementoLi.textContent)
 };
 
 //Eventos
 botonNuevaTarea.addEventListener('click', agregarTarea);
-
 tareaInput.addEventListener('click', comprobarInput);
-
 
 
 
