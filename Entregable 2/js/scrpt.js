@@ -5,13 +5,14 @@ let formulario = document.getElementById('form')
 let nuevoP;
 
 //Cargar tareas desde Local Storage al inciar
-document.addEventListener('DOMContenidoCargado', function(){
+document.addEventListener('DOMContentLoaded', function(){
     let tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
     tareasGuardadas.forEach(tarea => {
         agregarLi(tarea);
     });
 })
 
+//Función para crear elemento Li, agregarle el texto y agregarlo a la lista y para que al seleccionarlo elimine la tarea
 function agregarLi(texto) {
     const nuevoLi = document.createElement('li');
     nuevoLi.textContent = `# ${texto}`;
@@ -27,7 +28,6 @@ let agregarTarea = function() {
 
     if (nuevaTareaTexto !=="") {
         agregarLi(nuevaTareaTexto)
-        //tareaInput.value = ""
 
         //almacenar en Local Storage
         let tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
@@ -67,6 +67,7 @@ let eliminarTarea = function(tarea){
     let elementoLi = tarea.target //así capturo elvalor del elemento <li> clickeado
     let textoTarea = elementoLi.textContent.replace(/^#\s*/, "");
 
+    //elimino el elemento de mi lista del DOM
     lista.removeChild(elementoLi)
     alert("Tarea eliminada: " + textoTarea)
     
