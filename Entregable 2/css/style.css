@@ -5,6 +5,10 @@
 }
 
 body {
+    height: 100vh;
+    background-image: url(../img/imagen3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #fafafac8;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
@@ -17,10 +21,10 @@ body {
 }
 
 .principal {
-    background-color: #F44336;
-    border-top: 30px solid #D32F2F;
-    color: #fff;
-    padding: 60px 0;
+    background-color: rgba(173, 164, 163, 0.8);
+    border-top: 10px solid rgba(195, 139, 36, 0.8);
+    color: rgba(179, 149, 149, 0.8);    
+    padding: 40px 0;
     width: 100%;
 }
 
@@ -33,16 +37,17 @@ body {
     margin-bottom: 20px;
     padding: 12px;
     width: 100%;
+    font-weight: bold;
 }
 
 .principal .formulario input[type=text].error {
-    border: 4px solid #D32F2F;
+    border: 1px solid #D32F2F;
     color: red;
 }
 
 .principal .formulario .boton {
-    background: #a0e09cae;
-    border: 1px solid #456745df;
+    background: #a0e09c92;
+    border: 1px solid #5f815fc8;
     color: #161515;
     font-size: 18px;
     font-weight: bold;
@@ -50,17 +55,18 @@ body {
 }
 
 .principal .formulario .boton:hover {
-    border: 2px solid #ffffffb8;
+    border: 5px solid #252323b8;
     cursor: pointer;
 }
 
 .tareas .lista li {
-    border-bottom: 2px solid #b6b6b6;
-    padding: 5px;    
+    border-bottom: 4px solid #1f1e1e;
+    padding: 3px;    
 }
 
 .tareas .lista li {
-    color: #212121;
+    color: #1c1b1b;
+    font-weight: 500;
     text-decoration: none;
     padding: 20px 0;
     display: block;
@@ -69,5 +75,7 @@ body {
 .tareas .lista li:hover {
     text-decoration: line-through;
     cursor: pointer;
+    font-weight: bold;
+    color: #161515;
 }
 

@@ -46,7 +46,7 @@ let agregarTarea = function() {
 
         if(!nuevoP) {
             nuevoP = document.createElement('p')
-            nuevoP.innerHTML = `<p style=padding:8px>Por favor escribe una tarea</p>`;
+            nuevoP.innerHTML = `<p style="padding:8px; color:red;">Por favor escribe una tarea</p>`;
             formulario.appendChild(nuevoP);     
         }        
     }
