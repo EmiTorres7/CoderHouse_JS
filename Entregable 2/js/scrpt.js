@@ -4,33 +4,51 @@ let botonNuevaTarea = document.getElementById('boton-agregar');
 let formulario = document.getElementById('form')
 let nuevoP;
 
-//const tareas = Array.from(document.querySelectorAll('#listaTareas li'));
+//Cargar tareas desde Local Storage al inciar
+document.addEventListener('DOMContenidoCargado', function(){
+    let tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
+    tareasGuardadas.forEach(tarea => {
+        agregarLi(tarea);
+    });
+})
+
+function agregarLi(texto) {
+    const nuevoLi = document.createElement('li');
+    nuevoLi.textContent = `# ${texto}`;
+    //agregar a la lista
+    lista.appendChild(nuevoLi)
+    //eliminar tarea al hacer click
+    nuevoLi.addEventListener('click', eliminarTarea)
+}
 
 //Función agregar tarea
-let agregarTarea = function(){
+let agregarTarea = function() {
     const nuevaTareaTexto = tareaInput.value.trim();
 
     if (nuevaTareaTexto !=="") {
+        agregarLi(nuevaTareaTexto)
+        //tareaInput.value = ""
 
-        const nuevoLi = document.createElement('li');
-        nuevoLi.textContent = `# ${nuevaTareaTexto}`;
-        //agregar a la lista
-        lista.appendChild(nuevoLi)
-        //eliminar tarea al hacer click
-        nuevoLi.addEventListener('click', eliminarTarea)
-        //limpiar input    
+        //almacenar en Local Storage
+        let tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
+        tareasGuardadas.push(nuevaTareaTexto);
+        localStorage.setItem('tareas', JSON.stringify(tareasGuardadas));
+        
+        //limpiar input y error
         tareaInput.value = "";
-        console.log(tareaInput);
-
-        form.removeChild(nuevoP)
+        if (nuevoP) {
+            formulario.removeChild(nuevoP);
+            nuevoP = null;
+        }
     } else {
         tareaInput.setAttribute("placeholder", "Agrega una tarea válida")
         tareaInput.className = "error"
 
-        //Mostrar mensjae sólo si no existe nuevoDiv
-        let nuevoP = document.createElement('p');
-        nuevoP.innerHTML = `<p style=padding:8px>Por favor escribe una tarea</p>`;
-        form.appendChild(nuevoP);     
+        if(!nuevoP) {
+            nuevoP = document.createElement('p')
+            nuevoP.innerHTML = `<p style=padding:8px>Por favor escribe una tarea</p>`;
+            formulario.appendChild(nuevoP);     
+        }        
     }
 };
 
@@ -38,14 +56,24 @@ let agregarTarea = function(){
 let comprobarInput = function(){
     tareaInput.className = "";
     tareaInput.setAttribute("placeholder", "Agrega tu tarea")
-    form.removeChild(nuevoP)
+    if (nuevoP) {
+        formulario.removeChild(nuevoP);
+        nuevoP = null;
+    }
 };
 
 //Función eliminiar tarea
 let eliminarTarea = function(tarea){
     let elementoLi = tarea.target //así capturo elvalor del elemento <li> clickeado
+    let textoTarea = elementoLi.textContent.replace(/^#\s*/, "");
+
     lista.removeChild(elementoLi)
-    alert("Tarea eliminada: " + elementoLi.textContent)
+    alert("Tarea eliminada: " + textoTarea)
+    
+    //Eliminar tarea del local storage
+    let tareasGuardadas = JSON.parse(localStorage.getItem('tareas')) || [];
+    tareasGuardadas = tareasGuardadas.filter(t => t !== textoTarea);
+    localStorage.setItem('tareas', JSON.stringify(tareasGuardadas));        
 };
 
 //Eventos
