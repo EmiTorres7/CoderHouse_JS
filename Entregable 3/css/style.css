@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+p {
+    color: #555;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+div {
+    padding: 10px 100px ;
+}
+
+body {
+    height: 100vh;
+    background-image: url('../img/imagen.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
