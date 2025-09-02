@@ -16,7 +16,7 @@ div {
 body {
     height: 100vh;
     background-image: url('../img/imagen.png');
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
 }
 
