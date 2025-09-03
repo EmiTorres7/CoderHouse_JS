@@ -124,11 +124,36 @@
 // }
 
 // boton.addEventListener('click', menuPrincipal) 
+const contenedor = document.getElementById('contenedor')
 
 const llamadaAlServidor = async() => {
     let llamada = await fetch('./libros.json')
     let data = await llamada.json()
     console.log(data)
+    data.forEach(libro => {
+        let div = document.createElement('div')
+        div.innerHTML =`
+        <div class="card col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+          <div class="card h-100">
+            <img src=${libro.img} class="card-img-top" alt="image">
+            <div class="card-body">
+                <h4 class="card-title">${libro.titulo}</h5>
+                <p class="card-text">Género:${libro.autor}</p>
+                <p class="card-text">Género:${libro.categoria}</p>
+                <p>Precio: $${libro.precio}</p>
+                <a href="#" class="buttons btn btn-primary" data-id=${libro.id}>Agregar Carrito</a>
+            </div>
+          </div>  
+        </div>`
+        contenedor.appendChild(div)
+    });
+    let botones = document.querySelectorAll('.buttons')
+    botones.forEach(btn => {
+        btn.addEventListener('click', (e)=>{
+            let id = e.target.dataset.id
+            console.log(id)
+        })
+    })
 }
 
 llamadaAlServidor()
