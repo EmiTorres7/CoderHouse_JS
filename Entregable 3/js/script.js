@@ -132,19 +132,17 @@ const llamadaAlServidor = async() => {
     console.log(data)
     data.forEach(libro => {
         let div = document.createElement('div')
-        div.innerHTML =`
-        <div class="card col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
-          <div class="card h-100">
-            <img src=${libro.img} class="card-img-top" alt="image">
-            <div class="card-body">
-                <h4 class="card-title">${libro.titulo}</h5>
-                <p class="card-text">Género:${libro.autor}</p>
-                <p class="card-text">Género:${libro.categoria}</p>
-                <p>Precio: $${libro.precio}</p>
-                <a href="#" class="buttons btn btn-primary" data-id=${libro.id}>Agregar Carrito</a>
-            </div>
-          </div>  
-        </div>`
+        div.classList.add("card", "col-12", "col-sm-6", "col-md-4", "col-lg-3")
+        div.style="width: 18rem;"
+        div.innerHTML =`   
+         <img src=${libro.img} class="card-img-top" alt="image">
+         <div class="card-body d-flex flex-column">
+            <h4 class="card-title text-uppercase fs-4 fw-bold pb-4">${libro.titulo}</h4>
+            <p class="card-text text-center fs-4 fw-bold">Autor: <span class="fw-normal">${libro.autor}</span></p>
+            <p class="card-text text-center fs-4 fw-bold">Categoría: <span class="fw-normal">${libro.categoria}</span></p>
+            <p class="fs-5 lh-lg fw-light">Precio: $${libro.precio}</p>
+            <a href="#" class="buttons btn btn-primary fw-bold mt-auto" data-id=${libro.id}>Agregar Carrito</a>
+         </div>`
         contenedor.appendChild(div)
     });
     let botones = document.querySelectorAll('.buttons')
