@@ -20,4 +20,10 @@ body {
     background-size: cover;
 }
 
+.img-fixed {
+  height: 300px;
+  object-fit: cover;
+}
+
+
 

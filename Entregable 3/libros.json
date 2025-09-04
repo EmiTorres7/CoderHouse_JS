@@ -1,6 +1,6 @@
 [
   { "id":1, 
-    "img": "./img/artificial.jpg",
+    "img": "./img/1984.webp",
     "titulo": "1984", 
     "autor": "George Orwell", 
     "año": 1949, 
@@ -10,7 +10,7 @@
     "categoria": "Ficción"
 },
   { "id":2,
-    "img": "./img/artificial.jpg",
+    "img": "./img/100añosdesoledad.jpg",
     "titulo": "Cien años de soledad",
     "autor": "Gabriel García Márquez", 
     "año": 1967, 
@@ -20,7 +20,7 @@
     "categoria": "Ficción" 
 },
   { "id":3,
-    "img": "./img/artificial.jpg",
+    "img": "./img/farenheit451.webp",
     "titulo": "Fahrenheit 451", 
     "autor": "Ray Bradbury", 
     "año": 1953, 
@@ -30,7 +30,7 @@
     "categoria": "Ficción" 
 },
   { "id":4,
-    "img": "./img/artificial.jpg",
+    "img": "./img/elseñordellosanillos.jpg",
     "titulo": "El señor de los anillos", 
     "autor": "J.R.R. Tolkien", 
     "año": 1954, 
@@ -40,7 +40,7 @@
     "categoria": "Ficción" 
 },
   { "id":5,
-    "img": "./img/artificial.jpg",
+    "img": "./img/sapiens.jpg",
     "titulo": "Sapiens", 
     "autor": "Yuval Noah Harari", 
     "año": 2011,
@@ -50,7 +50,7 @@
     "categoria": "No Ficción" 
 },
   { "id":6,
-    "img": "./img/artificial.jpg",
+    "img": "./img/brevehistoriadeltiempo.webp",
     "titulo": "Una breve historia del tiempo", 
     "autor": "Stephen Hawking",
     "año": 1988, 
@@ -60,7 +60,7 @@
     "categoria": "No Ficción"
 },
   { "id":7,
-    "img": "./img/artificial.jpg",
+    "img": "./img/elgen.jpg",
     "titulo": "El gen", 
     "autor": "Siddhartha Mukherjee", 
     "año": 2016, 
@@ -70,7 +70,7 @@
     "categoria": "No Ficción" 
 },
   { "id":8,
-    "img": "./img/artificial.jpg",
+    "img": "./img/loscuatroacuerdos.webp",
     "titulo": "Los cuatro acuerdos", 
     "autor": "Don Miguel Ruiz", 
     "año": 1997, "genero": "Autoayuda", 
@@ -79,7 +79,7 @@
     "categoria": "No Ficción" 
 },
   { "id":9,
-    "img": "./img/artificial.jpg",
+    "img": "./img/el-principito.jpg",
     "titulo": "El principito", 
     "autor": "Antoine de Saint-Exupéry", 
     "año": 1943, "edad_recomendada": "8+", 
@@ -88,7 +88,7 @@
     "categoria": "Infantiles"
  },
   { "id":10,
-    "img": "./img/artificial.jpg",
+    "img": "./img/Dondevivenlosmonstruos.jpg",
     "titulo": "Donde viven los monstruos", 
     "autor": "Maurice Sendak", 
     "año": 1963, 
@@ -98,7 +98,7 @@
     "categoria": "Infantiles" 
 },
   { "id":11,
-    "img": "./img/artificial.jpg",
+    "img": "./img/matilda.webp",
     "titulo": "Matilda", 
     "autor": "Roald Dahl", 
     "año": 1988, 
@@ -108,7 +108,7 @@
     "categoria": "Infantiles" 
 },
   { "id":12,
-    "img": "./img/artificial.jpg",
+    "img": "./img/harrypotter.jpg",
     "titulo": "Harry Potter y la piedra filosofal", 
     "autor": "J.K. Rowling", 
     "año": 1997, 
@@ -118,7 +118,7 @@
     "categoria": "Infantiles" 
 },
   { "id":13,
-    "img": "./img/artificial.jpg",
+    "img": "./img/algorithms.jpg",
     "titulo": "Introduction to Algorithms", 
     "autor": "Thomas H. Cormen", 
     "año": 2009, 
@@ -128,7 +128,7 @@
     "categoria": "Académico" 
 },
   { "id":14,
-    "img": "./img/artificial.jpg",
+    "img": "./img/selfishgen.webp",
     "titulo": "The Selfish Gene", 
     "autor": "Richard Dawkins", 
     "año": 1976, 
@@ -138,7 +138,7 @@
     "categoria": "Académico" 
 },
   { "id":15,
-    "img": "./img/artificial.jpg",
+    "img": "./img/purereason.webp",
     "titulo": "Critique of Pure Reason", 
     "autor": "Immanuel Kant", 
     "año": 1781, 
@@ -148,7 +148,7 @@
     "categoria": "Académico" 
 },
   { "id":16,
-    "img": "./img/artificial.jpg",
+    "img": "./img/revolutions.jpg",
     "titulo": "The Structure of Scientific Revolutions", 
     "autor": "Thomas S. Kuhn", 
     "año": 1962, 
@@ -158,7 +158,7 @@
     "categoria": "Académico" 
 },
   { "id":17,
-    "img": "./img/artificial.jpg",
+    "img": "./img/rayuela.webp",
     "titulo": "Rayuela", 
     "autor": "Julio Cortázar", 
     "pais": "Argentina", 
@@ -169,7 +169,7 @@
     "categoria": "Latinoamericano"
 },
   { "id":18,
-    "img": "./img/artificial.jpg",
+    "img": "./img/venasabiertas.jpg",
     "titulo": "Las venas abiertas de América Latina", 
     "autor": "Eduardo Galeano", 
     "pais": "Uruguay", 
@@ -180,7 +180,7 @@
     "categoria": "Latinoamericano"
 },
   { "id":19,
-    "img": "./img/artificial.jpg",
+    "img": "./img/ciudadperros.jpg",
     "titulo": "La ciudad y los perros", 
     "autor": "Mario Vargas Llosa", 
     "pais": "Perú", 
@@ -191,7 +191,7 @@
     "categoria": "Latinoamericano"
 },
   { "id":20,
-    "img": "./img/artificial.jpg",
+    "img": "./img/espiritus.webp",
     "titulo": "La casa de los espíritus", 
     "autor": "Isabel Allende", 
     "pais": "Chile", 
