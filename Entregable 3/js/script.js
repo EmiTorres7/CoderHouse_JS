@@ -1,6 +1,11 @@
 const contenedor = document.getElementById('contenedor')
 let carrito = []
 
+//Cargar tareas desde Local Storage al inciar
+// document.addEventListener('DOMContentLoaded', function(){
+//     JSON.parse(localStorage.getItem('carrito')) || []
+// })
+
 function calcularPrecio(precio) {
     let iva = parseFloat(precio)*0.21;
     let precioTotal = parseFloat(precio) + iva;
@@ -13,6 +18,12 @@ function precioFinalCarrito() {
     const total = carrito.reduce((total, producto) => total + producto.precio, 0)
     return `Productos agregados:${nombres}.\nPrecio Final: $${total}`
 }
+
+// function mostrarCarritoActual() {
+//     if(carrito == []) {
+//         return 'Tu carrito está vacío'
+//     }
+// }
 
 // function precioFinalCarrito() {
 //     let total = 0;
@@ -47,7 +58,12 @@ const llamadaAlServidor = async() => {
             let id = e.target.dataset.id
             console.log(id)
             let productoEncontrado = data.find(libro => libro.id == id)
+            //Obtener el carrito actual del LS
+            JSON.parse(localStorage.getItem('carrito')) || []
+            //Agrgo el producto al carrito
             carrito.push(productoEncontrado)
+            //Guardar en el LS
+            localStorage.setItem('carrito', JSON.stringify(carrito))
             console.log(carrito)
             console.log(productoEncontrado)
             Swal.fire({
@@ -63,13 +79,16 @@ const llamadaAlServidor = async() => {
                 if (result.isConfirmed) {
                     Swal.fire({
                         title: "Agregado Exitosamente!",    
-                        text: `${precioFinalCarrito()}`,                    
+                        text: `${precioFinalCarrito()}`,     
+                        //text:`${mostrarCarritoActual()}`,           
                         icon: "success"
                     });
                 } else {
                     Swal.fire({
                         title: 'Carrito Actual',
                         text: `${precioFinalCarrito()}`,
+                        //text:`${mostrarCarritoActual()}`,
+                        //text:`${localStorage.removeItem('carrito')}`,                        
                         icon: "info"
                     })
                 }
