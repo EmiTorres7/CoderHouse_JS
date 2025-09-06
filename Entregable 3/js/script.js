@@ -66,6 +66,12 @@ const llamadaAlServidor = async() => {
                         text: `${precioFinalCarrito()}`,                    
                         icon: "success"
                     });
+                } else {
+                    Swal.fire({
+                        title: 'Carrito Actual',
+                        text: `${precioFinalCarrito()}`,
+                        icon: "info"
+                    })
                 }
             }); 
         })
