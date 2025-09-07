@@ -1,10 +1,6 @@
 const contenedor = document.getElementById('contenedor')
 let carrito = []
-
-//Cargar tareas desde Local Storage al inciar
-// document.addEventListener('DOMContentLoaded', function(){
-//     JSON.parse(localStorage.getItem('carrito')) || []
-// })
+let precioTotal
 
 function calcularPrecio(precio) {
     let iva = parseFloat(precio)*0.21;
@@ -16,7 +12,7 @@ function precioFinalCarrito() {
     if (carrito.length === 0) return "El Carrito Actual está vacío."
     const nombres = carrito.map(producto => producto.titulo).join('-')
     const total = carrito.reduce((total, producto) => total + producto.precio, 0)
-    return `Productos agregados:${nombres}.\nPrecio Final: $${total}`
+    return `Productos agregados:${nombres}.\nPrecio Final: $${total + total*0.21}`
 }
 
 // function mostrarCarritoActual() {
