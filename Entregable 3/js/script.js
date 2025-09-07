@@ -112,7 +112,7 @@ const llamadaAlServidor = async() => {
                             Swal.fire("Guardado!", "", "success");
                         } else if (result.isDenied) {  
                             text:`${localStorage.removeItem('carrito')}`
-                            text:`${carrito.clear()}`,                          
+                            text:`${carrito = []}`,                          
                             Swal.fire("Los cambios no fueron guardados", "", "info")                            
                         }
                     });
