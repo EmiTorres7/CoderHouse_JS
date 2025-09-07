@@ -13,7 +13,7 @@ function calcularPrecio(precio) {
 }
 
 function precioFinalCarrito() {
-    if (carrito.length === 0) return "El carrito está vacío."
+    if (carrito.length === 0) return "El Carrito Actual está vacío."
     const nombres = carrito.map(producto => producto.titulo).join('-')
     const total = carrito.reduce((total, producto) => total + producto.precio, 0)
     return `Productos agregados:${nombres}.\nPrecio Final: $${total}`
@@ -58,39 +58,64 @@ const llamadaAlServidor = async() => {
             let id = e.target.dataset.id
             console.log(id)
             let productoEncontrado = data.find(libro => libro.id == id)
-            //Obtener el carrito actual del LS
-            JSON.parse(localStorage.getItem('carrito')) || []
-            //Agrgo el producto al carrito
-            carrito.push(productoEncontrado)
-            //Guardar en el LS
-            localStorage.setItem('carrito', JSON.stringify(carrito))
+
             console.log(carrito)
             console.log(productoEncontrado)
             Swal.fire({
-                title: 'Producto Agregado',
-                text: `${productoEncontrado.titulo} de la categoría ${productoEncontrado.categoria} se agregó al carrito.`,
+                //title: 'Producto Agregado',
+                title: `${productoEncontrado.titulo} de la categoría ${productoEncontrado.categoria} se agregó al carrito.`,
                 text: `Precio con IVA: $${calcularPrecio(productoEncontrado.precio)}`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Si, agregar al carrito!"
+                confirmButtonText: "Si, Agregar al carrito!"
             }).then((result) => {
                 if (result.isConfirmed) {
+                    //Obtener el carrito actual del LS
+                    JSON.parse(localStorage.getItem('carrito')) || []        
+                    
+                    //Agrgo el producto al carrito            
+                    carrito.push(productoEncontrado)
+                    console.log(carrito)
+
+                    //Guardar en el LS
+                    //localStorage.setItem('carrito', JSON.stringify(carrito))
                     Swal.fire({
+                        icon: "success",
                         title: "Agregado Exitosamente!",    
                         text: `${precioFinalCarrito()}`,     
-                        //text:`${mostrarCarritoActual()}`,           
-                        icon: "success"
+                        //text:`${mostrarCarritoActual()}`,                       
                     });
                 } else {
                     Swal.fire({
                         title: 'Carrito Actual',
                         text: `${precioFinalCarrito()}`,
                         //text:`${mostrarCarritoActual()}`,
-                        //text:`${localStorage.removeItem('carrito')}`,                        
+                                                
                         icon: "info"
                     })
+                    Swal.fire({
+                        icon: "info",
+                        title: "Carrito Actual",
+                        text: `${precioFinalCarrito()}`,
+                        //text: "¿Quieres guardar los cambios?",
+                        showDenyButton: true,
+                        showCancelButton: true,
+                        confirmButtonText: "Guardar Cambios",
+                        denyButtonText: `No Guardar`
+                    }).then((result) => {
+                        /* Read more about isConfirmed, isDenied below */
+                        if (result.isConfirmed) {
+                            //Guardar en el LS
+                            localStorage.setItem('carrito', JSON.stringify(carrito))
+                            Swal.fire("Guardado!", "", "success");
+                        } else if (result.isDenied) {  
+                            text:`${localStorage.removeItem('carrito')}`
+                            text:`${carrito.clear()}`,                          
+                            Swal.fire("Los cambios no fueron guardados", "", "info")                            
+                        }
+                    });
                 }
             }); 
         })
